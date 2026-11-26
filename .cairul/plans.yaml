@@ -1,0 +1,22 @@
+plans:
+  - match: 'https://github.com/cairul-hq/cairul-typescript-example/issues/*'
+    name: GitHub issue
+    mode: override
+    instructions: >-
+      Analyze the GitHub issue and implement the requested feature or bug fix.
+      Open a pull request targeting the default branch and link it to the issue
+      with `Closes #<issue-number>` in the description. Pass the Verification
+      checks, merge the pull request, and confirm that GitHub closed the issue.
+    phases:
+      - name: Verification
+        checks:
+          - name: Unit tests
+            kind: vitest.run
+            options:
+              select:
+                projects: [unit]
+          - name: End-to-end tests
+            kind: vitest.run
+            options:
+              select:
+                projects: [e2e]

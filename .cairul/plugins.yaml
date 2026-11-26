@@ -1,0 +1,2 @@
+plugins:
+  - package: '@cairul/vitest-plugin'
